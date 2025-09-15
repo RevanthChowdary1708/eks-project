@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: app1
+  name: sample-app
   labels:
-    app: app1
+    app: sample-app
     project: fluxcd-demo
   namespace: fluxcd-demo
 spec:
   selector:
     matchLabels:
-      app: app1
+      app: sample-app
       project: fluxcd-demo
   replicas: 2
   template:
     metadata:
       labels:
-        app: app1
+        app: sample-app
         project: fluxcd-demo
     spec:
       containers:
-      - name: app1
+      - name: sample-app
         image: sairevanthchowdarych/eks-flux-app:e6ab8bba
         ports:
         - containerPort: 80
