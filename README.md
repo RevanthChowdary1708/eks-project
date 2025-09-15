@@ -96,8 +96,6 @@ This:
 - Deploys Flux controllers (source, kustomize, helm)  
 - Configures Git repository synchronization  
 
-![FluxCD Setup](./assets/fluxcd-setup.png)
-
 ---
 
 ## Step 3: Configure repo structure
