@@ -32,6 +32,41 @@ Eks Project
 
 ---
 
+## Infrastructure Provisioning
+
+1. **Navigate to the infrastructure directory:**
+   ```bash
+   cd infrastructure/eks-cluster
+   ```
+
+2. **Create a Python virtual environment:**
+   ```bash
+   python3 -m venv .venv
+   ```
+
+3. **Activate the virtual environment:**
+   ```bash
+   source .venv/bin/activate
+   ```
+
+4. **Install required dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+5. **Synthesize the CDK application:**
+   ```bash
+   cdk synth
+   ```
+
+6. **Deploy the network and EKS stacks:**
+   ```bash
+   cdk deploy --all --require-approval never
+   ```
+
+This process will provision the basic EKS cluster infrastructure.
+
+
 ## **Bootstrapping Flux**  
 
 ### **1. Install Flux CLI**  
@@ -62,7 +97,7 @@ This:
 
 ---
 
-## **Example 1: Manual GitOps Deployment**  
+## **Example: GitOps Deployment**  
 *Deploy app1 by committing Kubernetes manifests*  
 
 ### **Workflow**  
@@ -107,7 +142,7 @@ spec:
 - Auto-deletes removed resources (`prune: true`)  
 - Syncs every 5 minutes  
 
-### **2. GitHub Actions Automation (.github/workflows/docker-build-push-update.yaml)**  
+### **2. GitHub Actions Automation (.github/workflows/eks-flux-app-build.yaml)**  
 ```yaml
 # .github/workflows/eks-flux-app-build.yaml
 name: EKS FluxCD Project | App - Docker Build
@@ -202,7 +237,7 @@ jobs:
 **Workflow**:  
 1. Developer pushes code to `fluxcd/app`  
 2. GitHub Actions:  
-   - Builds Docker image with commit SHA tag  
+   - Builds and Pushes Docker image with commit SHA tag  
    - Updates [app-deployment.yaml](fluxcd/manifests/app-deployment.yaml)  
    - Commits changes to `main` branch  
 3. Flux detects Git changes and deploys new image  
