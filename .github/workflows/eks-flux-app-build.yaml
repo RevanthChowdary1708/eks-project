@@ -2,6 +2,17 @@
 name: EKS FluxCD Project | App - Docker Build
 
 on:
+  workflow_dispatch:
+    inputs:
+      bump-type:
+        description: 'Version bump type'
+        required: true
+        default: 'minor'
+        type: choice
+        options:
+        - major
+        - minor
+        - patch
   push:
     branches:
       - main
