@@ -20,6 +20,6 @@ spec:
     spec:
       containers:
       - name: sample-app
-        image: sairevanthchowdarych/eks-flux-app:e6ab8bba
+        image: sairevanthchowdarych/eks-flux-app:a37be787
         ports:
         - containerPort: 80
