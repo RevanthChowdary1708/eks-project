@@ -5,7 +5,6 @@ from aws_cdk import Tags
 
 from eks_cluster.eks_cluster_stack import EksClusterStack
 from eks_cluster.network_stack import NetworkStack
-from eks_cluster.eks_cluster import KubernetesStack
 
 app = cdk.App()
 
@@ -24,14 +23,8 @@ eks_stack = EksClusterStack(
     network_stack=network_stack
 )
 
-eks_stack2 = KubernetesStack(
-    app, 
-    "EksClusterStack2",
-    network_stack=network_stack
-)
-
 Tags.of(app).add("Application", APP_PREFIX)
-Tags.of(app).add("Owner", "Anvesh Muppeda")
+Tags.of(app).add("Owner", "Revanth Chilukuri")
 Tags.of(app).add("Environment", "Sandbox")
 Tags.of(app).add("Project", "AWSInfra")
 Tags.of(app).add("ManagedBy", "CDK")
