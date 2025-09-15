@@ -1,10 +1,10 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: GitRepository
 metadata:
-  name: app1
+  name: sample-repo
   namespace: fluxcd-demo
 spec:
   interval: 1m0s
   ref:
-    branch: feature/eksFluxCDProject
-  url: https://github.com/anveshmuppeda/kubernetes
+    branch: main
+  url: https://github.com/RevanthChowdary1708/eks-project
