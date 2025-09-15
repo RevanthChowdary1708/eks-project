@@ -70,17 +70,8 @@ This process will provision the basic EKS cluster infrastructure.
 ## Step 2: **Bootstrapping Flux**  
 
 **Purpose:**  
-Install and set up FluxCD for GitOps on your EKS cluster.
+Install and set up FluxCD for GitOps on EKS cluster.
 
-**Steps Explained:**
-1. **Install Flux CLI:**  
-   Get the Flux command-line tool for managing FluxCD.
-2. **Bootstrap Flux on Cluster:**  
-   Connect your cluster to your GitHub repo.  
-   - Creates the `flux-system` namespace.
-   - Deploys Flux controllers.
-   - Sets up Git sync for cluster resources.
-   
 ### **1. Install Flux CLI**  
 ```bash
 # macOS/Linux
@@ -111,13 +102,13 @@ This:
 
 ## Step 3: Configure repo structure
 
-## Step4: **Example: GitOps Deployment**  
+## Step4: **GitOps Deployment**  
 *Deploy app1 by committing Kubernetes manifests*  
 
 ### **Workflow**  
 
 ### **1. Configure Flux Objects**  
-**a. GitRepository (fluxcd/repos/infra-repo/apps/app1/gitrepository.yaml)**  
+**a. GitRepository (fluxcd/flux-resources/gitrepository.yaml)**  
 ```yaml
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: GitRepository
@@ -135,7 +126,7 @@ spec:
 - Monitors `main` branch in your repo  
 - Checks for changes every minute  
 
-**b. Kustomization (fluxcd/repos/infra-repo/apps/app1/kustomization.yaml)**  
+**b. Kustomization (fluxcd/flux-resources/kustomization.yaml)**  
 ```yaml
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
