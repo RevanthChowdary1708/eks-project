@@ -32,7 +32,7 @@ Eks Project
 
 ---
 
-## Infrastructure Provisioning
+## Step 1: Infrastructure Provisioning
 
 1. **Navigate to the infrastructure directory:**
    ```bash
@@ -67,7 +67,7 @@ Eks Project
 This process will provision the basic EKS cluster infrastructure.
 
 
-## **Bootstrapping Flux**  
+## Step 2: **Bootstrapping Flux**  
 
 ### **1. Install Flux CLI**  
 ```bash
@@ -97,7 +97,9 @@ This:
 
 ---
 
-## **Example: GitOps Deployment**  
+## Step 3: Configure repo structure
+
+## Step4: **Example: GitOps Deployment**  
 *Deploy app1 by committing Kubernetes manifests*  
 
 ### **Workflow**  
@@ -142,6 +144,7 @@ spec:
 - Auto-deletes removed resources (`prune: true`)  
 - Syncs every 5 minutes  
 
+## Step 5:
 ### **2. GitHub Actions Automation (.github/workflows/eks-flux-app-build.yaml)**  
 ```yaml
 # .github/workflows/eks-flux-app-build.yaml
